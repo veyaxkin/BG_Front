@@ -48,4 +48,7 @@ export default defineConfig({
       deny: ["**/.*"],
     },
   },
+
+  // ✅ Sposta la cache di Vite fuori da node_modules
+  cacheDir: path.resolve(import.meta.dirname, ".vite_cache"),
 });
