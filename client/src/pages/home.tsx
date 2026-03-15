@@ -46,7 +46,7 @@ export default function Home() {
               Engineering <span className="text-primary italic">resilience</span> into the human genome
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg leading-relaxed">
-              We are developing transformative gene therapies for anxiety, depression, and chronic pain - eeradicating suffering without the risk of addiction.
+              We are developing transformative gene therapies for anxiety, depression, and chronic pain - eradicating suffering without the risk of addiction.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="rounded-full text-base h-14 px-8 shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all" asChild>
