@@ -29,9 +29,10 @@ export const getQueryFn: <T>(options: {
 }) => QueryFunction<T> =
   ({ on401: unauthorizedBehavior }) =>
   async ({ queryKey }) => {
-    const res = await fetch(queryKey.join("/") as string, {
-      credentials: "include",
-    });
+    const baseUrl = process.env.REACT_APP_API_URL; // variabile d'ambiente
+    const res = await fetch(`${baseUrl}${queryKey.join("/")}`, {
+  credentials: "include",
+});
 
     if (unauthorizedBehavior === "returnNull" && res.status === 401) {
       return null;
