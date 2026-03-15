@@ -3,28 +3,3 @@ buildCommand = "npm run build"
 
 [deploy]
 startCommand = "npm run start"
-```
-
-**2. Il problema più importante — variabili d'ambiente**
-
-Il tuo stack usa PostgreSQL (`pg`, `drizzle-orm`, `connect-pg-simple`) e sessioni. Su Railway devi configurare queste env vars. Vai su Railway → il tuo servizio → **Variables** e aggiungi:
-```
-NODE_ENV=production
-DATABASE_URL=postgresql://...   ← stringa connessione del tuo DB
-SESSION_SECRET=una_stringa_casuale_lunga
-```
-
-**3. Verifica `script/build.ts`**
-
-Puoi incollare il contenuto di quel file? È il cuore del processo di build e quasi certamente contiene qualcosa che va aggiustato per Railway. In particolare voglio vedere se:
-- Chiama `npm ci` internamente (causando il loop)
-- Ha path hardcodati per Replit
-- Gestisce correttamente l'output in `dist/`
-
-**4. Plugin Replit nelle devDependencies**
-
-Noto che hai questi plugin:
-```
-@replit/vite-plugin-cartographer
-@replit/vite-plugin-dev-banner  
-@replit/vite-plugin-runtime-error-modal
