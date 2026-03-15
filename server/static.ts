@@ -1,14 +1,10 @@
 import express, { type Express } from "express";
 import fs from "fs";
 import path from "path";
-import { fileURLToPath } from "url";
 
 export function serveStatic(app: Express) {
-  const __filename = fileURLToPath(import.meta.url);
-  const __dirname = path.dirname(__filename);
-  
-  // In produzione il bundle è dist/index.cjs, quindi dist/ è la root
-  const distPath = path.resolve(__dirname, "public");
+  // process.cwd() è sempre la root del progetto (/app su Railway)
+  const distPath = path.resolve(process.cwd(), "dist", "public");
 
   if (!fs.existsSync(distPath)) {
     throw new Error(
