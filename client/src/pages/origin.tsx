@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import calmWoman from "@/assets/images/calm-woman.png";
