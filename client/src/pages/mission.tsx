@@ -23,6 +23,31 @@ export default function Mission() {
             </a>
           </Button>
         </div>
+        
+        {/* Mobile Navigation */}
+        <div className="md:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="text-white hover:bg-white/20">
+                <Menu className="h-6 w-6" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent className="bg-[#1a6660] text-white border-none w-[300px] sm:w-[400px]">
+              <div className="flex flex-col gap-6 mt-12 text-lg font-medium">
+                <Link href="/" className="transition-colors hover:text-[#a0e4dc] py-2 border-b border-white/10">Home</Link>
+                <Link href="/mission" className="transition-colors hover:text-[#a0e4dc] py-2 border-b border-white/10">Mission</Link>
+                <Link href="/origin" className="transition-colors hover:text-[#a0e4dc] py-2 border-b border-white/10">The Origin</Link>
+                <Link href="/pipeline" className="transition-colors hover:text-[#a0e4dc] py-2 border-b border-white/10">Pipeline</Link>
+                <Link href="/team" className="transition-colors hover:text-[#a0e4dc] py-2 border-b border-white/10">Team</Link>
+                <Button variant="default" className="rounded-full bg-white text-primary hover:bg-white/90 mt-4" asChild>
+                  <a href="mailto:info@blissgene.org">
+                    Partner With Us
+                  </a>
+                </Button>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
       </nav>
 
       {/* Main Content */}
@@ -65,6 +90,12 @@ export default function Mission() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
             <img src={logo} alt="BlissGene Therapeutics logo" className="h-24 w-auto" />
+            <div className="flex flex-wrap justify-center gap-6 text-sm font-medium">
+              <Link href="/mission" className="transition-colors text-white/80 hover:text-white">Mission</Link>
+              <Link href="/origin" className="transition-colors text-white/80 hover:text-white">The Origin</Link>
+              <Link href="/pipeline" className="transition-colors text-white/80 hover:text-white">Pipeline</Link>
+              <Link href="/team" className="transition-colors text-white/80 hover:text-white">Team</Link>
+            </div>
             <div className="flex items-center gap-6">
               <a href="https://www.linkedin.com/company/blissgene-therapeutics" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="LinkedIn">
                 <Linkedin className="w-6 h-6" />

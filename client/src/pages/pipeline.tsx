@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/images/BlissGene Logo.png";
-import { Linkedin, Activity, Dna, Clock, ChevronRight, Home, Microscope, Shield, HeartPulse, Brain } from "lucide-react";
+import { Linkedin, Activity, Dna, Clock, ChevronRight, Home, Microscope, Shield, HeartPulse, Brain, Menu } from "lucide-react";
 import { Link } from "wouter";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export default function Pipeline() {
   return (
@@ -124,6 +125,12 @@ export default function Pipeline() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
             <img src={logo} alt="BlissGene Therapeutics logo" className="h-24 w-auto" />
+            <div className="flex flex-wrap justify-center gap-6 text-sm font-medium">
+              <Link href="/mission" className="transition-colors text-white/80 hover:text-white">Mission</Link>
+              <Link href="/origin" className="transition-colors text-white/80 hover:text-white">The Origin</Link>
+              <Link href="/pipeline" className="transition-colors text-white/80 hover:text-white">Pipeline</Link>
+              <Link href="/team" className="transition-colors text-white/80 hover:text-white">Team</Link>
+            </div>
             <div className="flex items-center gap-6">
               <a href="https://www.linkedin.com/company/blissgene-therapeutics" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" aria-label="LinkedIn">
                 <Linkedin className="w-6 h-6" />
