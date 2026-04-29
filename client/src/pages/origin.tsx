@@ -1,16 +1,44 @@
-import Navbar from "@/components/Navbar";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 import calmWoman from "@/assets/images/calm-woman.png";
 import logo from "@/assets/images/BlissGene Logo.png";
-import { Linkedin } from "lucide-react";
+import { Linkedin, ChevronRight, Home } from "lucide-react";
+import { Link } from "wouter";
 
 export default function Origin() {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-hidden">
-      <Navbar />
+    <div className="min-h-screen bg-background text-foreground overflow-hidden flex flex-col">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b-0 py-4 px-6 md:px-12 flex justify-between items-center text-[#ffffff] bg-[#1a6660] shadow-md">
+        <Link href="/">
+          <img src={logo} alt="BlissGene Therapeutics logo" className="h-20 w-auto cursor-pointer" />
+        </Link>
+        <div className="hidden md:flex items-center gap-8 text-sm font-medium">
+          <Link href="/mission" className="transition-colors text-white hover:text-[#a0e4dc]">Mission</Link>
+          <Link href="/origin" className="transition-colors text-[#a0e4dc]">The Origin</Link>
+          <Link href="/pipeline" className="transition-colors text-white hover:text-[#a0e4dc]">Pipeline</Link>
+          <Link href="/team" className="transition-colors text-white hover:text-[#a0e4dc]">Team</Link>
+          <Button variant="default" className="rounded-full bg-white text-primary hover:bg-white/90 shadow-md hover:shadow-lg transition-all" asChild>
+            <a href="mailto:info@blissgene.org">
+              Partner With Us
+            </a>
+          </Button>
+        </div>
+      </nav>
 
       {/* Main Content */}
-      <section className="pt-48 pb-24 px-6 md:px-12 max-w-6xl mx-auto">
+      <div className="pt-36 px-6 md:px-12 max-w-6xl mx-auto w-full">
+        <nav className="flex items-center text-sm font-medium text-muted-foreground mb-8">
+          <Link href="/" className="hover:text-primary transition-colors flex items-center">
+            <Home className="w-4 h-4 mr-1" />
+            Home
+          </Link>
+          <ChevronRight className="w-4 h-4 mx-2" />
+          <span className="text-foreground">The Origin</span>
+        </nav>
+      </div>
+
+      <section className="pb-24 px-6 md:px-12 max-w-6xl mx-auto w-full flex-grow">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -38,13 +66,14 @@ export default function Origin() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative"
+            className="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl relative"
           >
             <img 
               src={calmWoman} 
               alt="Serene environment representing a life without suffering" 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover rounded-[2rem]"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-[2rem]" />
           </motion.div>
         </div>
       </section>

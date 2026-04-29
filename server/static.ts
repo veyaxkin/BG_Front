@@ -3,9 +3,7 @@ import fs from "fs";
 import path from "path";
 
 export function serveStatic(app: Express) {
-  // process.cwd() è sempre la root del progetto (/app su Railway)
-  const distPath = path.resolve(process.cwd(), "dist", "public");
-
+  const distPath = path.resolve(__dirname, "public");
   if (!fs.existsSync(distPath)) {
     throw new Error(
       `Could not find the build directory: ${distPath}, make sure to build the client first`,
@@ -14,6 +12,7 @@ export function serveStatic(app: Express) {
 
   app.use(express.static(distPath));
 
+  // fall through to index.html if the file doesn't exist
   app.use("/{*path}", (_req, res) => {
     res.sendFile(path.resolve(distPath, "index.html"));
   });

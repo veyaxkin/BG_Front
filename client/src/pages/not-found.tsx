@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import { Card, CardContent } from "@/components/ui/card";
 import { AlertCircle } from "lucide-react";
 

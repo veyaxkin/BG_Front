@@ -1,15 +1,43 @@
-import Navbar from "@/components/Navbar";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 import logo from "@/assets/images/BlissGene Logo.png";
-import { Linkedin, Brain, Shield, HeartPulse } from "lucide-react";
+import { Linkedin, Activity, Dna, Clock, ChevronRight, Home, Microscope, Shield, HeartPulse, Brain } from "lucide-react";
+import { Link } from "wouter";
 
 export default function Pipeline() {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-hidden">
-      <Navbar />
+    <div className="min-h-screen bg-background text-foreground overflow-hidden flex flex-col">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b-0 py-4 px-6 md:px-12 flex justify-between items-center text-[#ffffff] bg-[#1a6660] shadow-md">
+        <Link href="/">
+          <img src={logo} alt="BlissGene Therapeutics logo" className="h-20 w-auto cursor-pointer" />
+        </Link>
+        <div className="hidden md:flex items-center gap-8 text-sm font-medium">
+          <Link href="/mission" className="transition-colors text-white hover:text-[#a0e4dc]">Mission</Link>
+          <Link href="/origin" className="transition-colors text-white hover:text-[#a0e4dc]">The Origin</Link>
+          <Link href="/pipeline" className="transition-colors text-[#a0e4dc]">Pipeline</Link>
+          <Link href="/team" className="transition-colors text-white hover:text-[#a0e4dc]">Team</Link>
+          <Button variant="default" className="rounded-full bg-white text-primary hover:bg-white/90 shadow-md hover:shadow-lg transition-all" asChild>
+            <a href="mailto:info@blissgene.org">
+              Partner With Us
+            </a>
+          </Button>
+        </div>
+      </nav>
 
       {/* Main Content */}
-      <section className="pt-48 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
+      <div className="pt-36 px-6 md:px-12 max-w-7xl mx-auto w-full">
+        <nav className="flex items-center text-sm font-medium text-muted-foreground mb-8">
+          <Link href="/" className="hover:text-primary transition-colors flex items-center">
+            <Home className="w-4 h-4 mr-1" />
+            Home
+          </Link>
+          <ChevronRight className="w-4 h-4 mx-2" />
+          <span className="text-foreground">Pipeline</span>
+        </nav>
+      </div>
+
+      <section className="pb-24 px-6 md:px-12 max-w-7xl mx-auto w-full flex-grow">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -28,21 +56,21 @@ export default function Pipeline() {
               title: "Chronic Pain (BG-101)",
               status: "Pre-clinical",
               desc: "Our lead candidate targets specific nociceptive pathways in the dorsal root ganglion to permanently alter pain signaling safely and selectively, without affecting motor function or tactile sensation.",
-              icon: HeartPulse,
+              icon: Shield,
               progress: 35
             },
             {
               title: "Anxiety Disorders (BG-201)",
               status: "Discovery Phase",
-              desc: "Utilizing brain-selective lipid nanoparticles to deliver therapeutic genes that modulate synaptic transmission, promoting emotional equilibrium and reducing hyperarousal states in chronic anxiety models.",
-              icon: Brain,
+              desc: "Utilizing brain-selectiveq lipid nanoparticles to deliver therapeutic genes that modulate synaptic transmission, promoting emotional equilibrium and reducing hyperarousal states in chronic anxiety models.",
+              icon: HeartPulse,
               progress: 15
             },
             {
               title: "Major Depression (BG-301)",
               status: "Discovery Phase",
               desc: "A targeted approach to enhance neuroplasticity and emotional resilience through localized modulation of gene expression in the prefrontal cortex and hippocampus.",
-              icon: Shield,
+              icon: Activity,
               progress: 10
             }
           ].map((item, i) => (

@@ -1,60 +1,31 @@
-import Navbar from "@/components/Navbar";
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import heroScience from "@/assets/images/hero-science.png";
 import calmWoman from "@/assets/images/calm-woman.png";
 import logo from "@/assets/images/BlissGene Logo.png";
-import { ArrowRight, Brain, Shield, HeartPulse, Linkedin, Menu, X } from "lucide-react";
+import { ArrowRight, Brain, Shield, HeartPulse, Linkedin, Activity, Dna, Clock, Sparkles, Microscope } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b-0 py-4 px-6 md:px-12 text-[#ffffff] bg-[#1a6660] shadow-md">
-        <div className="flex justify-between items-center">
-          <Link href="/">
-            <img src={logo} alt="BlissGene Therapeutics logo" className="h-20 w-auto cursor-pointer" />
-          </Link>
-
-          {/* Desktop menu */}
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium">
-            <Link href="/mission" className="transition-colors text-white hover:text-[#a0e4dc]">Mission</Link>
-            <Link href="/origin" className="transition-colors text-white hover:text-[#a0e4dc]">The Origin</Link>
-            <Link href="/pipeline" className="transition-colors text-white hover:text-[#a0e4dc]">Pipeline</Link>
-            <Link href="/team" className="transition-colors text-white hover:text-[#a0e4dc]">Team</Link>
-            <Button variant="default" className="rounded-full bg-white text-primary hover:bg-white/90 shadow-md hover:shadow-lg transition-all" asChild>
-              <a href="mailto:info@blissgene.org">Partner With Us</a>
-            </Button>
-          </div>
-
-          {/* Hamburger button (mobile only) */}
-          <button
-            className="md:hidden text-white p-2"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-          >
-            {menuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
-          </button>
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b-0 py-4 px-6 md:px-12 flex justify-between items-center text-[#ffffff] bg-[#1a6660] shadow-md">
+        <Link href="/">
+          <img src={logo} alt="BlissGene Therapeutics logo" className="h-20 w-auto cursor-pointer" />
+        </Link>
+        <div className="hidden md:flex items-center gap-8 text-sm font-medium">
+          <Link href="/mission" className="transition-colors text-white hover:text-[#a0e4dc]">Mission</Link>
+          <Link href="/origin" className="transition-colors text-white hover:text-[#a0e4dc]">The Origin</Link>
+          <Link href="/pipeline" className="transition-colors text-white hover:text-[#a0e4dc]">Pipeline</Link>
+          <Link href="/team" className="transition-colors text-white hover:text-[#a0e4dc]">Team</Link>
+          <Button variant="default" className="rounded-full bg-white text-primary hover:bg-white/90 shadow-md hover:shadow-lg transition-all" asChild>
+            <a href="mailto:info@blissgene.org">
+              Partner With Us
+            </a>
+          </Button>
         </div>
-
-        {/* Mobile menu dropdown */}
-        {menuOpen && (
-          <div className="md:hidden flex flex-col gap-4 pt-4 pb-2 text-sm font-medium border-t border-white/20 mt-3">
-            <Link href="/mission" className="text-white hover:text-[#a0e4dc] transition-colors" onClick={() => setMenuOpen(false)}>Mission</Link>
-            <Link href="/origin" className="text-white hover:text-[#a0e4dc] transition-colors" onClick={() => setMenuOpen(false)}>The Origin</Link>
-            <Link href="/pipeline" className="text-white hover:text-[#a0e4dc] transition-colors" onClick={() => setMenuOpen(false)}>Pipeline</Link>
-            <Link href="/team" className="text-white hover:text-[#a0e4dc] transition-colors" onClick={() => setMenuOpen(false)}>Team</Link>
-            <Button variant="default" className="rounded-full bg-white text-primary hover:bg-white/90 shadow-md w-full mt-1" asChild>
-              <a href="mailto:info@blissgene.org" onClick={() => setMenuOpen(false)}>Partner With Us</a>
-            </Button>
-          </div>
-        )}
       </nav>
-
       {/* Hero Section */}
       <section className="pt-32 pb-20 md:pt-48 md:pb-32 px-6 md:px-12 relative">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-secondary/50 to-background" />
@@ -75,7 +46,7 @@ export default function Home() {
               Engineering <span className="text-primary italic">resilience</span> into the human genome
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg leading-relaxed">
-              We are developing transformative gene therapies for anxiety, depression, and chronic pain - eradicating suffering without the risk of addiction.
+              We are developing transformative gene therapies for anxiety, depression, and chronic pain - eeradicating suffering without the risk of addiction.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="rounded-full text-base h-14 px-8 shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all" asChild>
@@ -106,7 +77,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
       {/* The Origin Story */}
       <section id="origin" className="py-24 px-6 md:px-12 bg-white dark:bg-black/20">
         <div className="max-w-7xl mx-auto">
@@ -118,13 +88,13 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="lg:col-span-5 relative"
             >
-              <div className="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl">
+              <div className="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl bg-black relative">
                 <img 
                   src={calmWoman} 
                   alt="A serene woman representing a life without suffering" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-[2rem]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-[2rem]" />
               </div>
             </motion.div>
             
@@ -145,7 +115,7 @@ export default function Home() {
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="glass-panel p-6 rounded-2xl">
-                  <Shield className="w-8 h-8 text-primary mb-4" />
+                  <Microscope className="w-8 h-8 text-primary mb-4" />
                   <h3 className="font-bold text-lg mb-2">Opioid-Free</h3>
                   <p className="text-sm text-muted-foreground">Addressing chronic pain without the systemic risks of addiction or tolerance.</p>
                 </div>
@@ -159,7 +129,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Focus Areas */}
       <section id="pipeline" className="py-24 px-6 md:px-12 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[100px] -z-10 translate-x-1/2 -translate-y-1/2" />
@@ -177,19 +146,19 @@ export default function Home() {
               title: "Chronic Pain",
               status: "Pre-clinical",
               desc: "Targeting nociceptive pathways to permanently alter pain signaling safely and selectively.",
-              icon: HeartPulse
+              icon: Shield
             },
             {
               title: "Anxiety Disorders",
               status: "Discovery",
               desc: "Modulating synaptic transmission to promote emotional equilibrium and reduce hyperarousal.",
-              icon: Brain
+              icon: HeartPulse
             },
             {
               title: "Major Depression",
               status: "Discovery",
               desc: "Enhancing neuroplasticity and emotional resilience through targeted gene expression.",
-              icon: Shield
+              icon: Activity
             }
           ].map((item, i) => (
             <motion.div
@@ -216,7 +185,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
       {/* Footer */}
       <footer className="bg-[#1a6660] text-white py-16 px-6 md:px-12 rounded-t-[3rem] mt-12">
         <div className="max-w-7xl mx-auto">

@@ -1,17 +1,43 @@
-import Navbar from "@/components/Navbar";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Linkedin } from "lucide-react";
-import { Link } from "wouter";
 import logo from "@/assets/images/BlissGene Logo.png";
+import { Linkedin, ChevronRight, Home } from "lucide-react";
+import { Link } from "wouter";
 
 export default function Team() {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-hidden">
-      <Navbar />
+    <div className="min-h-screen bg-background text-foreground overflow-hidden flex flex-col">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b-0 py-4 px-6 md:px-12 flex justify-between items-center text-[#ffffff] bg-[#1a6660] shadow-md">
+        <Link href="/">
+          <img src={logo} alt="BlissGene Therapeutics logo" className="h-20 w-auto cursor-pointer" />
+        </Link>
+        <div className="hidden md:flex items-center gap-8 text-sm font-medium">
+          <Link href="/mission" className="transition-colors text-white hover:text-[#a0e4dc]">Mission</Link>
+          <Link href="/origin" className="transition-colors text-white hover:text-[#a0e4dc]">The Origin</Link>
+          <Link href="/pipeline" className="transition-colors text-white hover:text-[#a0e4dc]">Pipeline</Link>
+          <Link href="/team" className="transition-colors text-[#a0e4dc]">Team</Link>
+          <Button variant="default" className="rounded-full bg-white text-primary hover:bg-white/90 shadow-md hover:shadow-lg transition-all" asChild>
+            <a href="mailto:info@blissgene.org">
+              Partner With Us
+            </a>
+          </Button>
+        </div>
+      </nav>
 
       {/* Main Content */}
-      <section className="pt-48 pb-12 px-6 md:px-12 max-w-7xl mx-auto">
+      <div className="pt-36 px-6 md:px-12 max-w-7xl mx-auto w-full">
+        <nav className="flex items-center text-sm font-medium text-muted-foreground mb-8">
+          <Link href="/" className="hover:text-primary transition-colors flex items-center">
+            <Home className="w-4 h-4 mr-1" />
+            Home
+          </Link>
+          <ChevronRight className="w-4 h-4 mx-2" />
+          <span className="text-foreground">Team</span>
+        </nav>
+      </div>
+
+      <section className="pb-12 px-6 md:px-12 max-w-7xl mx-auto w-full flex-grow">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
