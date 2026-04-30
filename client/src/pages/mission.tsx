@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/images/BlissGene Logo.png";
-import { Linkedin, ChevronRight, Home } from "lucide-react";
+import { Linkedin, Target, Users, FlaskConical, ChevronRight, Home, Menu } from "lucide-react";
 import { Link } from "wouter";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export default function Mission() {
   return (

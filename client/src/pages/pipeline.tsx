@@ -24,6 +24,31 @@ export default function Pipeline() {
             </a>
           </Button>
         </div>
+        
+        {/* Mobile Navigation */}
+        <div className="md:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="text-white hover:bg-white/20">
+                <Menu className="h-6 w-6" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent className="bg-[#1a6660] text-white border-none w-[300px] sm:w-[400px]">
+              <div className="flex flex-col gap-6 mt-12 text-lg font-medium">
+                <Link href="/" className="transition-colors hover:text-[#a0e4dc] py-2 border-b border-white/10">Home</Link>
+                <Link href="/mission" className="transition-colors hover:text-[#a0e4dc] py-2 border-b border-white/10">Mission</Link>
+                <Link href="/origin" className="transition-colors hover:text-[#a0e4dc] py-2 border-b border-white/10">The Origin</Link>
+                <Link href="/pipeline" className="transition-colors hover:text-[#a0e4dc] py-2 border-b border-white/10">Pipeline</Link>
+                <Link href="/team" className="transition-colors hover:text-[#a0e4dc] py-2 border-b border-white/10">Team</Link>
+                <Button variant="default" className="rounded-full bg-white text-primary hover:bg-white/90 mt-4" asChild>
+                  <a href="mailto:info@blissgene.org">
+                    Partner With Us
+                  </a>
+                </Button>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
       </nav>
 
       {/* Main Content */}
